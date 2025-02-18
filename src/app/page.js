@@ -1,95 +1,143 @@
+"use client"
 import Image from "next/image";
-import styles from "./page.module.css";
+import kolaHero from "../../public/images/copertina-desktop.jpg";
+import Logo from "../../public/imagesMenu/logoNews.png";
+import koalaHamburger1 from "../../public/imagesMenu/koalaHamburger1.jpg";
+import koalaPizza1 from "../../public/imagesMenu/koalaPizza1.jpg"
+import koalaPasta1 from "../../public/imagesMenu/koalaPasta1.jpg";
+import koalaBirra1 from "../../public/imagesMenu/koalaBirra1.jpg";
+import koalaContatti1 from "../../public/imagesMenu/koalaContatti1.jpg";
+import koalaNews1 from "../../public/imagesMenu/koalaNews1.jpg";
+import koalaGallery1 from "../../public/imagesMenu/koalaGallery1.jpg";
+import koalaDelivery1 from "../../public/imagesMenu/koalaDelivery1.jpg";
+import koalaCocktail1 from "../../public/imagesMenu/koalaCocktail1.jpg";
+import styles from "./page.module.scss";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+
+
+const imageArray = [koalaBirra1, koalaHamburger1, koalaPizza1, koalaPasta1, koalaCocktail1]
 
 export default function Home() {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      setCount((prevCount) => (prevCount + 1) % imageArray.length);
+    }, 5000);
+
+    return () => clearTimeout(interval);
+  }, [count]);
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <div className={styles.heroImageContainer}>
+          <Image className={styles.heroImage} src={kolaHero} alt="koala hero image" priority
+            fill={true} quality={100} />
+        </div>
+
+        <div className={styles.container}>
+
+          <div className={`${styles.logo} ${styles.item0}`}>
             <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={Logo}
+              alt="koala logo"
+              width={150}
+              height={150}
+              priority
+
+              quality={100}
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+          </div>
+          <div className={styles.item1}>
+            <Link href="/News">
+              <div className={styles.images}>
+                <Image
+                  src={koalaNews1}
+                  alt="koala hamburger"
+                  priority
+
+                  quality={100}
+                />
+              </div>
+              <div className={styles.titleContainer}>
+                <h2>News</h2>
+              </div>
+            </Link>
+
+          </div>
+
+          <div className={styles.item2}>
+            <Link href="/Contatti">
+              <div className={styles.images}>
+                <Image
+                  src={koalaContatti1}
+                  alt="koala contatti"
+                  priority
+
+                  quality={100}
+                />
+              </div>
+              <div className={styles.titleContainer}>
+                <h2>Contatti</h2>
+              </div>
+            </Link>
+          </div>
+
+          <div className={styles.item3}>
+            <Link href="/Menu">
+              <div className={styles.images}>
+                <Image
+                  src={imageArray[count]}
+                  alt="koala hamburger"
+                  priority
+                  quality={100}
+                />
+              </div>
+              <div className={styles.titleContainer}>
+                <h2>Menu</h2>
+              </div>
+            </Link>
+          </div>
+
+          <div className={styles.item4}>
+            <Link href="/Asporto">
+              <div className={styles.images}>
+                <Image
+                  src={koalaDelivery1}
+                  alt="koala Asporto"
+                  priority
+
+                  quality={100}
+                />
+              </div>
+              <div className={styles.titleContainer}>
+                <h2>Asporto</h2>
+              </div>
+            </Link>
+          </div>
+
+          <div className={styles.item5}>
+            <Link href="/Gallery">
+              <div className={styles.images}>
+                <Image
+                  src={koalaGallery1}
+                  alt="koala hamburger"
+                  priority
+
+                  quality={100}
+                />
+              </div>
+              <div className={styles.titleContainer}>
+                <h2>Gallery</h2>
+              </div>
+            </Link>
+          </div>
+
         </div>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
     </div>
   );
 }
