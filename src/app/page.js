@@ -50,6 +50,7 @@ export default function Home() {
               quality={100}
             />
           </div>
+
           <div className={styles.item1}>
             <Link href="/News">
               <div className={styles.images}>
@@ -69,20 +70,21 @@ export default function Home() {
           </div>
 
           <div className={styles.item2}>
-            <Link href="/Contatti">
+            <Link href="/Gallery">
               <div className={styles.images}>
                 <Image
-                  src={koalaContatti1}
-                  alt="koala contatti"
+                  src={koalaGallery1}
+                  alt="koala hamburger"
                   priority
 
                   quality={100}
                 />
               </div>
               <div className={styles.titleContainer}>
-                <h2>Contatti</h2>
+                <h2>Gallery</h2>
               </div>
             </Link>
+
           </div>
 
           <div className={styles.item3}>
@@ -119,18 +121,22 @@ export default function Home() {
           </div>
 
           <div className={styles.item5}>
-            <Link href="/Gallery">
-              <div className={styles.images}>
-                <Image
-                  src={koalaGallery1}
-                  alt="koala hamburger"
-                  priority
+            <Link href="/Contatti">
+              <div className={styles.contatti}>
 
-                  quality={100}
-                />
-              </div>
-              <div className={styles.titleContainer}>
-                <h2>Gallery</h2>
+                <div className={styles.images}>
+                  <Image
+                    src={koalaContatti1}
+                    alt="koala contatti"
+                    priority
+                    quality={100}
+                  />
+                </div>
+
+                <div className={styles.titleContainer}>
+                  <h2>Contatti</h2>
+                </div>
+
               </div>
             </Link>
           </div>
