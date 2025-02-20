@@ -1,16 +1,16 @@
 "use client"
 import Image from "next/image";
 import kolaHero from "../../public/images/copertina-desktop.jpg";
-import Logo from "../../public/imagesMenu/logoNews.png";
-import koalaHamburger1 from "../../public/imagesMenu/koalaHamburger1.jpg";
-import koalaPizza1 from "../../public/imagesMenu/koalaPizza1.jpg"
-import koalaPasta1 from "../../public/imagesMenu/koalaPasta1.jpg";
-import koalaBirra1 from "../../public/imagesMenu/koalaBirra1.jpg";
-import koalaContatti1 from "../../public/imagesMenu/koalaContatti1.jpg";
-import koalaNews1 from "../../public/imagesMenu/koalaNews1.jpg";
-import koalaGallery1 from "../../public/imagesMenu/koalaGallery1.jpg";
-import koalaDelivery1 from "../../public/imagesMenu/koalaDelivery1.jpg";
-import koalaCocktail1 from "../../public/imagesMenu/koalaCocktail1.jpg";
+import Logo from "../../public/imagesKoala/logoNews.png";
+import koalaHamburger1 from "../../public/imagesKoala/koalaHamburger1.jpg";
+import koalaPizza1 from "../../public/imagesKoala/koalaPizza1.jpg"
+import koalaPasta1 from "../../public/imagesKoala/koalaPasta1.jpg";
+import koalaBirra1 from "../../public/imagesKoala/koalaBirra1.jpg";
+import koalaContatti1 from "../../public/imagesKoala/koalaContatti1.jpg";
+import koalaNews1 from "../../public/imagesKoala/koalaNews1.jpg";
+import koalaGallery1 from "../../public/imagesKoala/koalaGallery1.jpg";
+import koalaDelivery1 from "../../public/imagesKoala/koalaDelivery1.jpg";
+import koalaCocktail1 from "../../public/imagesKoala/koalaCocktail1.jpg";
 import styles from "./page.module.scss";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -23,12 +23,14 @@ export default function Home() {
   useEffect(() => {
     const interval = setTimeout(() => {
       setCount((prevCount) => (prevCount + 1) % imageArray.length);
+
     }, 5000);
 
-    return () => clearTimeout(interval);
+    clearTimeout(interval);
   }, [count]);
 
   return (
+
     <div className={styles.page}>
       <main className={styles.main}>
 
@@ -50,7 +52,6 @@ export default function Home() {
               quality={100}
             />
           </div>
-
           <div className={styles.item1}>
             <Link href="/News">
               <div className={styles.images}>
@@ -66,7 +67,6 @@ export default function Home() {
                 <h2>News</h2>
               </div>
             </Link>
-
           </div>
 
           <div className={styles.item2}>
@@ -145,5 +145,6 @@ export default function Home() {
       </main>
 
     </div>
+
   );
 }
